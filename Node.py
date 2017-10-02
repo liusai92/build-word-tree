@@ -34,6 +34,9 @@ class Node(object):
     def add_children(self, chn):
         if not isinstance(chn, Node):
             raise ValueError('added item must be node object')
+        for ele in self._children:
+            if ele < chn:
+                return
         self._children.append(chn)
 
     @property
